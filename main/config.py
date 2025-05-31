@@ -1,0 +1,1 @@
+DEEPSEEK_API_KEY = 'sk-c354a83bfba3497e9cff29aa7c6d09f8'  # 请替换为实际API密钥

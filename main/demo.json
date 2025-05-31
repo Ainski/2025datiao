@@ -1,0 +1,114 @@
+{
+  "VideoAnalysis": {
+    "BasicProductInformation": {
+      "ProductName": "XX牌智能电饭煲",
+      "Brand": "XX电器",
+      "Model": "CFXB-50YA1",
+      "ProductID": "PROD-20250531-001",
+      "Barcode": "6901234567890",
+      "ReleaseDate": "2025-05-01",
+      "UpdateDate": "2025-05-31"
+    },
+    "PhysicalAttributes": {
+      "Dimensions": {
+        "Length": 30,
+        "Width": 25,
+        "Height": 20,
+        "Unit": "厘米"
+      },
+      "Weight": {
+        "NetWeight": 3.5,
+        "GrossWeight": 4.2,
+        "Unit": "千克"
+      },
+      "Colors": ["珍珠白", "星空灰", "香槟金"],
+      "Materials": {
+        "Shell": "ABS塑料",
+        "InnerPot": "铝合金+不粘涂层",
+        "PowerCord": "PVC"
+      }
+    },
+    "PricingAndSalesInformation": {
+      "Origin": "广东省佛山市",
+      "Manufacturer": "XX电器制造有限公司",
+      "ProductionLicenseNumber": "XK16-102-00012"
+    },
+    "FunctionsAndFeatures": {
+      "BasicFunctions": ["煮饭", "煮粥", "煲汤", "蒸菜", "保温"],
+      "SpecialFeatures": ["智能预约", "压力烹饪", "营养保温", "口感调节"],
+      "TechnicalParameters": {
+        "RatedPower": 800,
+        "PowerSupply": "220V/50Hz",
+        "Capacity": 5,
+        "CapacityUnit": "升",
+        "EnergyEfficiencyClass": "二级"
+      },
+      "Certifications": ["CCC认证", "节能认证"]
+    },
+    "UserExperienceRelated": {
+      "TargetUsers": "家庭、单身公寓、宿舍",
+      "UsageScenarios": ["日常煮饭", "早餐煮粥", "周末炖汤"],
+      "PackagingInformation": {
+        "PackageDimensions": {
+          "Length": 35,
+          "Width": 30,
+          "Height": 25,
+          "Unit": "厘米"
+        },
+        "PackageWeight": 4.5,
+        "PackagingMaterial": "瓦楞纸箱+泡沫缓冲",
+        "Accessories": ["内胆", "饭勺", "汤勺", "量杯", "说明书", "保修卡"]
+      },
+      "ServiceCommitments": {
+        "AfterSalesService": "全国联保一年",
+        "ReturnPolicy": "7天无理由退换，15天质量问题包换",
+        "CustomerServicePhone": "400-800-8888"
+      }
+    },
+    "MarketingAndEvaluationInformation": {
+      "TargetAudience": "25-45岁家庭主妇/夫、上班族",
+      "ProductPositioning": "中高端智能厨房电器",
+      "UniqueSellingPoints": ["IH电磁加热", "微电脑控制", "24小时预约", "多种烹饪模式"],
+      "UserRatings": {
+        "OverallRating": 4.8,
+        "RatingCount": 2563,
+        "RatingDistribution": {
+          "FiveStars": 78,
+          "FourStars": 18,
+          "ThreeStars": 3,
+          "TwoStars": 0.5,
+          "OneStar": 0.5
+        }
+      },
+      "SalesData": {
+        "MonthlySales": 12587,
+        "CumulativeSales": 125873,
+        "SalesRegions": ["华东", "华南", "华北", "西南", "东北"]
+      }
+    },
+    "RelatedProductInformation": {
+      "CompanionProducts": ["XX牌蒸笼", "XX牌饭铲", "XX牌清洁球"],
+      "RecommendedCombinations": ["XX牌东北大米", "XX牌杂粮组合", "XX牌电饭煲清洁剂"],
+      "CompetitorProducts": ["YY牌电饭煲", "ZZ牌电饭煲"]
+    }
+  },
+  "comment": "真是太好用了",
+  "Liver": {
+    "Livername": "Feijiayi",
+    "RegisterTimeStamp": "1999-9-1",
+    "SalesVolume": 1000,
+    "FanCounts": 1000
+  },
+  "User": {
+    "Username": "Ainski",
+    "CommentCounts": 100,
+    "FanCounts": 1000,
+    "RegisterTimeStamp": "2024-10-26",
+    "CommentTimeSep": "1d",
+    "CommentHistory": {
+      "TongjiStore": 1,
+      "ShanghaiShiFanDaXueStore": 10,
+      "XiangWuNin": 100
+    }
+  }
+}

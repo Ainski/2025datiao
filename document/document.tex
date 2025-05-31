@@ -1,0 +1,171 @@
+\documentclass{ctexart}
+\usepackage{amsmath, amsthm, amssymb, graphicx, graphicx,bm,indentfirst,pdflscape}
+\usepackage{graphicx} %插入图片的宏包
+\usepackage{float} %设置图片浮动位置的宏包
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{circuitikz}
+\usepackage{scalerel}
+\usepackage{stackengine}
+\usepackage{listings}
+\usepackage{geometry}
+\tcbuselibrary{skins}
+\tcbuselibrary{minted}
+\usemintedstyle{lovelace}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows, positioning}
+\title{技术路线}
+\author{程浩然}
+\date{\today}
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	\newpage
+	\thispagestyle{empty}%取消页码
+	\tableofcontents%生成目录
+	\newpage
+	\setcounter{page}{1}
+	\section{项目概述}
+	设计一款ai，在用户通过当下的流视频平台进行网上购物的过程中，能够为用户提供识别那些商品是平台为了刷单而退出的，哪些商品是真正高质量的商品。
+	\par 我们首先要明确什么事刷单，刷单指的是，商家雇佣一些消费者去自己的店铺消费的行为，并产生好评称之为刷单。我们要做的是识别这些好评并为客户予以标识。
+	\section{技术路线}
+	\subsection{判别模型}
+	\par 为了降低代码量，我们直接采用大模型微调的方式来快速获取直接可用的大模型。训练计划是，首先在本地部署一下大模型中的一个（gpt4,deepseek-0324...）通过购买/调用api 的方式来获取ai模型的资源，进行小成本的训练。
+	\section{交互实现}
+	\par 这部分的实现相对困难，在最理想的状态下，我们可能封装成一个插件的模式，或者可以在后台抓到用户观看的视频资源的模式，在用户观看直播的过程当中，自动的对于视频进行一定的判别，遇到高风险的视频，直接对于视频的内容进行报告。
+	\par 但是考虑到相对困难的代码量以及时间成本，我们直接搭建网站提供上传视频的接口，用户上传一次，模型判别一次即可。
+	\section{模型设计}
+	\subsection{输入的设计}
+\subsubsection{文本内容}
+文本内容主要包括如下内容：
+\begin{itemize}
+\item 用户评论内容
+\item 每条评论所属的用户行为特征,包括评论数，粉丝数，注册时间，平均评论间隔，评论商店的统计
+\item 直播商户的信息
+\end{itemize}
+\subsubsection{模型的最终输入}
+模型以一个视频下的一个用户评论作为模型的输入。
+\begin{lstlisting}
+{
+  "BasicProductInformation": { // 商品基本信息
+    "ProductName": "XX牌智能电饭煲", // 商品名称
+    "Brand": "XX电器", // 品牌
+    "Model": "CFXB-50YA1", // 型号
+    "ProductID": "PROD-20250531-001", // 商品编号
+    "Barcode": "6901234567890", // 条形码
+    "ReleaseDate": "2025-05-01", // 发布日期
+    "UpdateDate": "2025-05-31" // 更新日期
+  },
+  "PhysicalAttributes": { // 物理属性
+    "Dimensions": { // 尺寸
+      "Length": 30, // 长
+      "Width": 25, // 宽
+      "Height": 20, // 高
+      "Unit": "厘米" // 单位
+    },
+    "Weight": { // 重量
+      "NetWeight": 3.5, // 净重
+      "GrossWeight": 4.2, // 毛重
+      "Unit": "千克" // 单位
+    },
+    "Colors": ["珍珠白", "星空灰", "香槟金"], // 颜色列表
+    "Materials": { // 材质
+      "Shell": "ABS塑料", // 外壳材质
+      "InnerPot": "铝合金+不粘涂层", // 内胆材质
+      "PowerCord": "PVC" // 电源线材质
+    }
+  },
+  "PricingAndSalesInformation": { // 价格与销售信息
+    "Origin": "广东省佛山市", // 产地
+    "Manufacturer": "XX电器制造有限公司", // 生产厂家
+    "ProductionLicenseNumber": "XK16-102-00012" // 生产许可证编号
+  },
+  "FunctionsAndFeatures": { // 功能与特性
+    "BasicFunctions": ["煮饭", "煮粥", "煲汤", "蒸菜", "保温"], // 基本功能列表
+    "SpecialFeatures": ["智能预约", "压力烹饪", "营养保温", "口感调节"], // 特色功能列表
+    "TechnicalParameters": { // 技术参数
+      "RatedPower": 800, // 额定功率
+      "PowerSupply": "220V/50Hz", // 电源规格
+      "Capacity": 5, // 容量
+      "CapacityUnit": "升", // 容量单位
+      "EnergyEfficiencyClass": "二级" // 能效等级
+    },
+    "Certifications": ["CCC认证", "节能认证"] // 认证信息列表
+  },
+  "UserExperienceRelated": { // 用户体验相关信息
+    "TargetUsers": "家庭、单身公寓、宿舍", // 适用人群
+    "UsageScenarios": ["日常煮饭", "早餐煮粥", "周末炖汤"], // 使用场景列表
+    "PackagingInformation": { // 包装信息
+      "PackageDimensions": { // 包装尺寸
+        "Length": 35, // 长
+        "Width": 30, // 宽
+        "Height": 25, // 高
+        "Unit": "厘米" // 单位
+      },
+      "PackageWeight": 4.5, // 包装重量
+      "PackagingMaterial": "瓦楞纸箱+泡沫缓冲", // 包装材料
+      "Accessories": ["内胆", "饭勺", "汤勺", "量杯", "说明书", "保修卡"] // 配件列表
+    },
+    "ServiceCommitments": { // 服务承诺
+      "AfterSalesService": "全国联保一年", // 售后服务
+      "ReturnPolicy": "7天无理由退换，15天质量问题包换", // 退换政策
+      "CustomerServicePhone": "400-800-8888" // 客服电话
+    }
+  },
+  "MarketingAndEvaluationInformation": { // 营销与评价信息
+    "TargetAudience": "25-45岁家庭主妇/夫、上班族", // 目标用户
+    "ProductPositioning": "中高端智能厨房电器", // 产品定位
+    "UniqueSellingPoints": ["IH电磁加热", "微电脑控制", "24小时预约", "多种烹饪模式"], // 卖点列表
+    "UserRatings": { // 用户评分
+      "OverallRating": 4.8, // 综合评分
+      "RatingCount": 2563, // 评分人数
+      "RatingDistribution": { // 评分分布
+        "FiveStars": 78, // 五星占比（%）
+        "FourStars": 18, // 四星占比（%）
+        "ThreeStars": 3, // 三星占比（%）
+        "TwoStars": 0.5, // 二星占比（%）
+        "OneStar": 0.5 // 一星占比（%）
+      }
+    },
+    "SalesData": { // 销售数据
+      "MonthlySales": 12587, // 月销量
+      "CumulativeSales": 125873, // 累计销量
+      "SalesRegions": ["华东", "华南", "华北", "西南", "东北"] // 销售地区列表
+    }
+  },
+  "RelatedProductInformation": { // 相关商品信息
+    "CompanionProducts": ["XX牌蒸笼", "XX牌饭铲", "XX牌清洁球"], // 配套商品列表
+    "RecommendedCombinations": ["XX牌东北大米", "XX牌杂粮组合", "XX牌电饭煲清洁剂"], // 推荐搭配列表
+    "CompetitorProducts": ["YY牌电饭煲", "ZZ牌电饭煲"] // 同类竞品列表
+  },
+  "Liver": { // 本条存储直播商户的信息
+    "Livername": "Feijiayi", // 商户名
+    "RegisterTimeStamp": "1999-9-1", // 注册时间
+    "SalesVolume": 1000,
+    "FanCounts": 1000
+  },
+  "comment": { 
+    "content": "真是太好用了", // 评论内容
+    "User": { // 用户信息
+      "Username": "Ainski", // 用户名
+      "CommentCounts": 100, // 评论总数
+      "FanCounts": 1000, // 粉丝数
+      "RegisterTimeStamp": "2024-10-26", // 注册时间
+      "CommentTimeSep": "1d", // 平均评论间隔（单位：天）
+      "CommentHistory": { // 评论商店统计，表示在每个商店的评论次数
+        "TongjiStore": 1, 
+        "ShanghaiShiFanDaXueStore": 10, 
+        "XiangWuNin": 100 
+      }
+    }
+  }
+}
+\end{lstlisting}
+\subsection{输出的设计}
+\begin{itemize}
+\item 逐条评论风险等级（低/中/高）及理由  
+\item 整体刷单风险结论（附数据依据，如评论量与销量比例）  
+\end{itemize}
+\end{document}

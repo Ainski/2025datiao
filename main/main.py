@@ -1,16 +1,24 @@
-# 这是一个示例 Python 脚本。
+from dsapi import call_deepseek_api
+from utils import *
+import os
+def make_prompt(data):
+    prompt = "现在给出关于网站上某个产品的以及其评论的相关信息：请你判断是否为一条刷单评论。刷单评论指的是评论内容大量重复、无意义、或与产品无关的评论。"
+    prompt += data
+    prompt += "请逐条评论分析风险等级[低风险、中风险、高风险]，并给出理由。请以json的格式提交，json的格式如下：\n"
+    prompt += "{\n"
+    prompt += "    \"comment\": [\n"
+    prompt += "        {\n"
+    prompt += "            \"content\": \"评论内容\",\n"
+    prompt += "            \"risk_level\": \"低风险/中风险/高风险\",\n"
+    prompt += "            \"reason\": \"理由\"\n"
+    prompt += "        }\n"
+    prompt += "    ]\n"
+    prompt += "}"
+    return prompt
+def main():
+    data=read_json_file("demo.json")
+    demo_file=open("demo.json","r",encoding="utf-8")
+    raw=demo_file.read()
 
-# 按 Ctrl+F5 执行或将其替换为您的代码。
-# 按 双击 Shift 在所有地方搜索类、文件、工具窗口、操作和设置。
-
-
-def print_hi(name):
-    # 在下面的代码行中使用断点来调试脚本。
-    print(f'Hi, {name}')  # 按 F9 切换断点。
-
-
-# 按装订区域中的绿色按钮以运行脚本。
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# 访问 https://www.jetbrains.com/help/pycharm/ 获取 PyCharm 帮助
+    main()
