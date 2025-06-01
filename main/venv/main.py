@@ -6,16 +6,30 @@ from DrissionPage import ChromiumPage
 import requests
 def make_prompt(data:dict):
     prompt = "现在给出关于网站上某个产品的以及其评论的相关信息：请你判断是否为一条刷单评论。刷单评论指的是评论内容大量重复、无意义、或与产品无关的评论。"
-    prompt += dict_to_string(data)
+    prompt += f"{data}"
     prompt += "请逐条评论分析风险等级[低风险、中风险、高风险]，并给出理由。请以json的格式提交，json的格式如下：\n"
-    prompt += "[{\n"
-    prompt += "    \"User\": \"用户昵称\",\n"
-    prompt += "    \"Product\": \"商品名称\",\n"
-    prompt += "    \"Price\": \"商品价格\",\n"
-    prompt += "    \"content\": \"评论内容\",\n"
-    prompt += "    \"risk_level\": \"低风险/中风险/高风险\",\n"
-    prompt += "    \"reason\": \"理由\"\n"
-    prompt += "}]"
+    prompt += "{\n"
+    prompt += "    \"details\": [{\n"
+    prompt += "        \"User\": \"用户昵称\",\n"
+    prompt += "        \"comment_date\": \"评论日期\",\n"
+    prompt += "        \"comment_score\": \"评论分数\",\n"
+    prompt += "        \"praise_count\": \"点赞数\",\n"
+    prompt += "        \"wareAttribute\": \"购买型号\"\n"
+    prompt += "        \"content\": \"评论内容\",\n"
+    prompt += "        \"risk_level\": \"低风险/中风险/高风险\",\n"
+    prompt += "        \"reason\": \"理由\"\n"
+    prompt += "    }],\n"
+    prompt += "    \"overviews\"{\n"
+    prompt += "        \"Product\": \"商品名称\",\n"
+    prompt += "        \"Price\": \"商品价格\",\n"
+    prompt += "        \"total_comments\": \"总评论数\",\n"
+    prompt += "        \"low_risk_comments\": \"低风险评论数\",\n"
+    prompt += "        \"mid_risk_comments\": \"中风险评论数\",\n"
+    prompt += "        \"high_risk_comments\": \"高风险评论数\",\n"
+    prompt += "        \"overview_risk_level\": \"风险等级\",\n"
+    prompt += "        \"overview_reason\": \"理由\"\n"
+    prompt += "    }\n"
+    prompt += "}"
     return prompt
 # def main():
 #
@@ -96,30 +110,31 @@ def monitor_jd_buttons():
                                 print("\n" + "=" * 50)
                                 comments_data = json_data['result']['floors'][2]['data']
                                 comments=[]
+                                print(comments_data)
                                 for comment in comments_data:
+                                    print(comment)
+                                    if 'commentInfo' not in comment:
+                                        continue
                                     comment={
-                                        'userNickName':comment['commentInfo']['userNickName'],
-	                                    'wareAttribute':comment['commentInfo']['wareAttribute'],
-	                                    'commentDate':comment['commentInfo']['commentDate'],
-	                                    'commentScore':comment['commentInfo']['commentScore'],
-	                                    'praiseCnt':comment['commentInfo']['praiseCnt'],
-	                                    'commentData':comment['commentInfo']['commentData']
+                                        'userNickName':comment['commentInfo']['userNickName'] if 'userNickName' in comment['commentInfo'] else '',
+	                                    'wareAttribute':comment['commentInfo']['wareAttribute'] if 'wareAttribute' in comment['commentInfo'] else '',
+	                                    'commentDate':comment['commentInfo']['commentDate'] if 'commentDate' in comment['commentInfo'] else '',
+	                                    'commentScore':comment['commentInfo']['commentScore'] if 'commentScore' in comment['commentInfo'] else '',
+	                                    'praiseCnt':comment['commentInfo']['praiseCnt'] if 'praiseCnt' in comment['commentInfo'] else '',
+	                                    'commentData':comment['commentInfo']['commentData'] if 'commentData' in comment['commentInfo'] else '',
                                     }
                                     comments.append(comment)
                                 print("评论数据：")
                                 print(comments)
-                                raw_data['comments'] = comments
+                                raw_data['comments'] = f"{comments}"
                                 print("=" * 50 + "\n")
                                 
                                 """
                                     成功则保存数据，并调用API进行风险识别，并保存结果
                                 """
-                                print(raw_data)
                                 save_path = r"clear_data/result%d.json"
                                 prompt = make_prompt(raw_data)  # 生成prompt
                                 result = call_deepseek_api(prompt)  # 调用API
-                                if type(result) != str:
-                                    print(result)
                                 clear_result = extract_and_parse_json(result)  # 清洗并解析json
                                 sf = save_path % count  # 保存文件名
                                 save_json_output(sf, clear_result)  # 保存json文件

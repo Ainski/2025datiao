@@ -184,4 +184,4 @@ def dict_to_string(data: dict) -> str:
     异常处理:
         - 无
 	"""
-	return json.dumps(data, ensure_ascii=False, indent=2)
+	return json.dumps(data, ensure_ascii=False, indent=4)
