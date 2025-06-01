@@ -1,0 +1,114 @@
+{
+  "BasicProductInformation": { // 商品基本信息
+    "ProductName": "柏瑞美后台保湿定妆喷雾", // 商品名称
+    "Brand": "PRAMY/柏瑞美", // 品牌
+    "Model": "none", // 型号
+    "ProductID": "none", // 商品编号
+    "Barcode": "none", // 条形码
+    "ReleaseDate": "none", // 发布日期
+    "UpdateDate": "none" // 更新日期
+  },
+  "PhysicalAttributes": { // 物理属性
+    "Dimensions": { // 尺寸
+      "Length": 30, // 长
+      "Width": 25, // 宽
+      "Height": 20, // 高
+      "Unit": "厘米" // 单位
+    },
+    "Weight": { // 重量
+      "NetWeight": 3.5, // 净重
+      "GrossWeight": 4.2, // 毛重
+      "Unit": "千克" // 单位
+    },
+    "Colors": ["珍珠白", "星空灰", "香槟金"], // 颜色列表
+    "Materials": { // 材质
+      "Shell": "ABS塑料", // 外壳材质
+      "InnerPot": "铝合金+不粘涂层", // 内胆材质
+      "PowerCord": "PVC" // 电源线材质
+    }
+  },
+  "PricingAndSalesInformation": { // 价格与销售信息
+    "Origin": "中国大陆", // 产地
+    "Manufacturer": "珠海亚拓生物科技有限公司", // 生产厂家
+    "ProductionLicenseNumber": "粤G妆网备字2024346769" // 生产许可证编号
+  },
+  "FunctionsAndFeatures": { // 功能与特性
+    "BasicFunctions": ["煮饭", "煮粥", "煲汤", "蒸菜", "保温"], // 基本功能列表
+    "SpecialFeatures": ["智能预约", "压力烹饪", "营养保温", "口感调节"], // 特色功能列表
+    "TechnicalParameters": { // 技术参数
+      "RatedPower": 800, // 额定功率
+      "PowerSupply": "220V/50Hz", // 电源规格
+      "Capacity": 5, // 容量
+      "CapacityUnit": "升", // 容量单位
+      "EnergyEfficiencyClass": "二级" // 能效等级
+    },
+    "Certifications": ["CCC认证", "节能认证"] // 认证信息列表
+  },
+  "UserExperienceRelated": { // 用户体验相关信息
+    "TargetUsers": "家庭、单身公寓、宿舍", // 适用人群
+    "UsageScenarios": ["日常煮饭", "早餐煮粥", "周末炖汤"], // 使用场景列表
+    "PackagingInformation": { // 包装信息
+      "PackageDimensions": { // 包装尺寸
+        "Length": 35, // 长
+        "Width": 30, // 宽
+        "Height": 25, // 高
+        "Unit": "厘米" // 单位
+      },
+      "PackageWeight": 4.5, // 包装重量
+      "PackagingMaterial": "瓦楞纸箱+泡沫缓冲", // 包装材料
+      "Accessories": ["内胆", "饭勺", "汤勺", "量杯", "说明书", "保修卡"] // 配件列表
+    },
+    "ServiceCommitments": { // 服务承诺
+      "AfterSalesService": "全国联保一年", // 售后服务
+      "ReturnPolicy": "7天无理由退换，15天质量问题包换", // 退换政策
+      "CustomerServicePhone": "400-800-8888" // 客服电话
+    }
+  },
+  "MarketingAndEvaluationInformation": { // 营销与评价信息
+    "TargetAudience": "20-45岁女性群体", // 目标用户
+    "ProductPositioning": "持妆力定妆喷雾", // 产品定位
+    "UniqueSellingPoints": ["性价比高", "15s快速成膜", "无刺激", "微米级雾化喷雾"], // 卖点列表
+    "UserRatings": { // 用户评分
+      "OverallRating": 4.4, // 综合评分
+      "RatingCount": none, // 评分人数
+      "RatingDistribution": { // 评分分布
+        "FiveStars": none, // 五星占比（%）
+        "FourStars": none, // 四星占比（%）
+        "ThreeStars": none, // 三星占比（%）
+        "TwoStars": none, // 二星占比（%）
+        "OneStar": none// 一星占比（%）
+      }
+    },
+    "SalesData": { // 销售数据
+      "MonthlySales": none, // 月销量
+      "CumulativeSales": 990000, // 累计销量
+      "SalesRegions": ["华东", "华南", "华北", "西南", "东北"] // 销售地区列表
+    }
+  },
+  "RelatedProductInformation": { // 相关商品信息
+    "CompanionProducts": ["XX牌蒸笼", "XX牌饭铲", "XX牌清洁球"], // 配套商品列表
+    "RecommendedCombinations": ["XX牌东北大米", "XX牌杂粮组合", "XX牌电饭煲清洁剂"], // 推荐搭配列表
+    "CompetitorProducts": ["YY牌电饭煲", "ZZ牌电饭煲"] // 同类竞品列表
+  },
+  "Liver": { // 本条存储直播商户的信息
+    "Livername": "ally", // 商户名
+    "RegisterTimeStamp": "none", // 注册时间
+    "SalesVolume": none,
+    "FanCounts": 34810000
+  },
+  "comment": {
+    "content": "用起来很好", // 评论内容
+    "User": { // 用户信息
+      "Username": Fay", // 用户名
+      "CommentCounts": none, // 评论总数
+      "FanCounts": 0, // 粉丝数
+      "RegisterTimeStamp": "none", // 注册时间
+      "CommentTimeSep": "1d", // 平均评论间隔（单位：天）
+      "CommentHistory": { // 评论商店统计，表示在每个商店的评论次数
+        "TongjiStore": 1,
+        "ShanghaiShiFanDaXueStore": 10,
+        "XiangWuNin": 100
+      }
+    }
+  }
+}

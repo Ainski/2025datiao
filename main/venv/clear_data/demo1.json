@@ -1,0 +1,114 @@
+{
+  "BasicProductInformation": { 
+    "ProductName": "柏瑞美后台保湿定妆喷雾", 
+    "Brand": "PRAMY/柏瑞美", 
+    "Model": "none", 
+    "ProductID": "none", 
+    "Barcode": "none", 
+    "ReleaseDate": "none", 
+    "UpdateDate": "none" 
+  },
+  "PhysicalAttributes": { 
+    "Dimensions": { 
+      "Length": 30, 
+      "Width": 25, 
+      "Height": 20, 
+      "Unit": "厘米" 
+    },
+    "Weight": { 
+      "NetWeight": 3.5, 
+      "GrossWeight": 4.2, 
+      "Unit": "千克" 
+    },
+    "Colors": ["珍珠白", "星空灰", "香槟金"], 
+    "Materials": { 
+      "Shell": "ABS塑料", 
+      "InnerPot": "铝合金+不粘涂层", 
+      "PowerCord": "PVC" 
+    }
+  },
+  "PricingAndSalesInformation": { 
+    "Origin": "中国大陆", 
+    "Manufacturer": "珠海亚拓生物科技有限公司", 
+    "ProductionLicenseNumber": "粤G妆网备字2024346769" 
+  },
+  "FunctionsAndFeatures": { 
+    "BasicFunctions": ["煮饭", "煮粥", "煲汤", "蒸菜", "保温"], 
+    "SpecialFeatures": ["智能预约", "压力烹饪", "营养保温", "口感调节"], 
+    "TechnicalParameters": { 
+      "RatedPower": 800, 
+      "PowerSupply": "220V/50Hz", 
+      "Capacity": 5, 
+      "CapacityUnit": "升", 
+      "EnergyEfficiencyClass": "二级" 
+    },
+    "Certifications": ["CCC认证", "节能认证"] 
+  },
+  "UserExperienceRelated": { 
+    "TargetUsers": "家庭、单身公寓、宿舍", 
+    "UsageScenarios": ["日常煮饭", "早餐煮粥", "周末炖汤"], 
+    "PackagingInformation": { 
+      "PackageDimensions": { 
+        "Length": 35, 
+        "Width": 30, 
+        "Height": 25, 
+        "Unit": "厘米" 
+      },
+      "PackageWeight": 4.5, 
+      "PackagingMaterial": "瓦楞纸箱+泡沫缓冲", 
+      "Accessories": ["内胆", "饭勺", "汤勺", "量杯", "说明书", "保修卡"] 
+    },
+    "ServiceCommitments": { 
+      "AfterSalesService": "全国联保一年", 
+      "ReturnPolicy": "7天无理由退换，15天质量问题包换", 
+      "CustomerServicePhone": "400-800-8888" 
+    }
+  },
+  "MarketingAndEvaluationInformation": { 
+    "TargetAudience": "20-45岁女性群体", 
+    "ProductPositioning": "持妆力定妆喷雾", 
+    "UniqueSellingPoints": ["性价比高", "15s快速成膜", "无刺激", "微米级雾化喷雾"], 
+    "UserRatings": { 
+      "OverallRating": 4.4, 
+      "RatingCount": "none", 
+      "RatingDistribution": { 
+        "FiveStars": "none", 
+        "FourStars": "none", 
+        "ThreeStars": "none", 
+        "TwoStars": "none", 
+        "OneStar": "none"
+      }
+    },
+    "SalesData": { 
+      "MonthlySales": "none", 
+      "CumulativeSales": 990000, 
+      "SalesRegions": ["华东", "华南", "华北", "西南", "东北"] 
+    }
+  },
+  "RelatedProductInformation": { 
+    "CompanionProducts": ["XX牌蒸笼", "XX牌饭铲", "XX牌清洁球"], 
+    "RecommendedCombinations": ["XX牌东北大米", "XX牌杂粮组合", "XX牌电饭煲清洁剂"], 
+    "CompetitorProducts": ["YY牌电饭煲", "ZZ牌电饭煲"] 
+  },
+  "Liver": { 
+    "Livername": "ally", 
+    "RegisterTimeStamp": "none", 
+    "SalesVolume": "none",
+    "FanCounts": 34810000
+  },
+  "comment": {
+    "content": "不愧是ally推荐的，很好用，会继续回购", 
+    "User": { 
+      "Username": "彩虹姐姐",
+      "CommentCounts": "none", 
+      "FanCounts": 26, 
+      "RegisterTimeStamp": "none", 
+      "CommentTimeSep": "1d", 
+      "CommentHistory": { 
+        "TongjiStore": 1,
+        "ShanghaiShiFanDaXueStore": 10,
+        "XiangWuNin": 100
+      }
+    }
+  }
+}
