@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页信息</title>
+</head>
+<body style="width: 800px; min-width: 800px; padding: 20px 25px;">
+  <div id="rate-cards" style="min-width: 750px;">
+    <h1>当前网页URL：</h1>
+    <div id="url"></div>
+    <h2>页面内容：</h2>
+    <div id="content" style="max-height: 300px; overflow: auto;"></div>
+    <h3>商品评价（共<span id="card-count">0</span>条）</h3>
+    <div id="cards-container" style="display: grid; grid-template-columns: 3fr 2fr; gap: 30px; min-width: 800px;">
+      <!-- 卡片容器 -->
+    </div>
+    
+    <div style="margin:15px 0">
+      <button id="confirm-btn" style="padding:8px 20px;background:#07c;color:white;border:none;border-radius:4px">
+        开始采集内容
+      </button>
+      <button id="submit-btn" style="margin-left:10px;padding:8px 20px;background:#28a745;color:white;border:none;border-radius:4px">
+        提交分析结果
+      </button>
+      <div id="status" style="display:none;color:#666;margin-top:5px">采集中...</div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

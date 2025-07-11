@@ -60,7 +60,7 @@ def monitor_jd_buttons():
     
     print("已打开浏览器，请随意浏览京东页面")
     page.get('https://www.jd.com')  # 初始页面
-    count = 0
+    count = 1
     try:
         while True:
             # 获取所有标签页（无需显式切换）
@@ -134,10 +134,13 @@ def monitor_jd_buttons():
                                 """
                                 save_path = r"clear_data/result%d.json"
                                 prompt = make_prompt(raw_data)  # 生成prompt
+                                clear_result = {}
+                                clear_result['raw_data']=raw_data
                                 result = call_deepseek_api(prompt)  # 调用API
-                                clear_result = extract_and_parse_json(result)  # 清洗并解析json
+                                clear_result['result'] = extract_and_parse_json(result)  # 清洗并解析json
                                 sf = save_path % count  # 保存文件名
                                 save_json_output(sf, clear_result)  # 保存json文件
+                                print(f"文件已保存: {sf}")
                                 print(recursive_print_json(clear_result))
                                 count += 1
                                 
