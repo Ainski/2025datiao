@@ -1,5 +1,0 @@
-openai
-DrissionPage
-requests
-regex
-pandas
